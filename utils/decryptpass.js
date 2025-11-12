@@ -9,4 +9,4 @@ const decrptyPass = async(pass, hash)=>{
     }
 }
 
-module.exports = decrptyPass;
+module.exports.comparePass = decrptyPass;
