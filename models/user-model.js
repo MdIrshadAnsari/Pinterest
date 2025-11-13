@@ -6,5 +6,11 @@ const userSchema = mongoose.Schema({
     number : Number,
     password : String,
     profilepicture: String,
+    posts:[
+        {
+            type:mongoose.Schema.ObjectId,
+            ref: "postmodel"
+        }
+    ]
 })
 module.exports = mongoose.model("usermodel", userSchema)
