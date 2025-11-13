@@ -34,7 +34,7 @@ const loginuser = async (req, res) => {
     let ifuser = await usermodel.findOne({ email: email });
     if (!ifuser) {
       // res.send("Email or password is incorrect")
-      res.redirect("/login");
+      res.redirect("/");
     } else {
       let user = ifuser;
       let ismatch = await comparePass(password, user.password);
