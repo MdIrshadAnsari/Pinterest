@@ -48,6 +48,19 @@ router.get('/add', isLoggesin, async(req, res)=>{
     res.render('add')
 })
 
+router.get('/show/posts', isLoggesin, async(req, res)=>{
+    const user = await usermodel.findOne({email: req.user.email})
+   .populate('posts')
+    res.render('show', {user})
+})
+
+router.get('/feed', isLoggesin, async(req, res)=>{
+  const user = usermodel.findOne({email: req.user.email})
+ const posts = await postmodel.find()
+  .populate("user")
+  res.render('feed', {user, posts})
+})
+
 router.post('/register', registeruser)
 router.post('/login', loginuser)
 router.get('/logout', logoutuser)

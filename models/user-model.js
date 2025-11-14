@@ -5,7 +5,10 @@ const userSchema = mongoose.Schema({
     email : String,
     number : Number,
     password : String,
-    profilepicture: String,
+    profilepicture: {
+        type: String,
+        default: "default.webp"
+    },
     posts:[
         {
             type:mongoose.Schema.ObjectId,

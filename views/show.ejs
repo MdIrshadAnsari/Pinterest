@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="w-full min-h-screen bg-zinc-800 text-white">
+     <div class="w-full px-10 py-3 flex justify-between bg-zinc-800 text-white items-center">
+     <h3>Pinterest</h3>
+     <div class="gap-5 flex items-center">
+      <a href="/home">Profile</a>
+      <a href="/feed">Feed</a>
+      <a class="px-3 py-2 bg-red-700 text-white rounded-lg" href="/logout">Logout</a>
+     </div>
+    </div>
+    <div>
+      <div class="cards flex flex-wrap gap-10 px-10 py-8">
+        <% user.posts.forEach(function(item){ %>
+            <div class="w-52 h-40 card">
+                <div class=" w-full h-full bg-sky-200 rounded-lg overflow-hidden">
+                    <img class="w-full h-full object-cover" src="/images/uploads/<%= item.postimage %>" alt="">
+                </div>
+                <h5 class="mt-2 text-sm"><%= item.title %></h5>
+            </div>
+       <% }) %>
+      </div>
+    </div>
+   </div>
+</body>
+</html>
